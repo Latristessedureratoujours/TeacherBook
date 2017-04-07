@@ -46,9 +46,9 @@ export class TeacherBook {
         return rating ? rating.value : null;
     }
 
-    public isAbsence(studentName: string, lessonNumber: number): boolean {
-        let isAbsence = this._absences.find(a => a.studentName == studentName && a.lessonNumber == lessonNumber);
-        return !!isAbsence;
+    public isAbsend(studentName: string, lessonNumber: number): boolean {
+        let isAbsend = this._absences.find(a => a.studentName == studentName && a.lessonNumber == lessonNumber);
+        return !!isAbsend;
     }
 
 }
