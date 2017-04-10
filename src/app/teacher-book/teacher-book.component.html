@@ -1,0 +1,44 @@
+<input type="text" [(ngModel)]="_vm.statValuesIndex">
+<table>
+  <thead>
+    <tr>
+      <th>
+      </th>
+      <th *ngFor="let lesson of vm.lessons; ">
+        {{lesson}}
+      </th>
+      <th>
+        <button (click)="addLesson()">Add</button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of vm.students">
+      <th>
+        {{student.name}}
+        <button (click)="deleteStudent(student.name)">X</button>
+      </th>
+      <td *ngFor="let value of student.values; let i = index;">
+        <span *ngIf="value">
+          {{value}}
+        </span>
+        <span *ngIf="!value">
+          <input #valueInput type="text">
+          <button (click)="addValue(student.name,i+1, valueInput.value)">+</button>
+
+        </span>
+        <span *ngIf="vm.statValuesIndex == i+1">
+          ({{student.stat}})
+        </span>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>
+        <input type="text" [(ngModel)]="newStudentName">
+        <button (click)="addStudent()">Add</button>
+      </th>
+      <td *ngFor="let lesson of vm.lessons"></td>
+    </tr>
+  </tbody>
+</table>
